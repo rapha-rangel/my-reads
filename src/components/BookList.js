@@ -1,7 +1,8 @@
 import Bookshelf from "./Bookshelf";
 import {Link} from "react-router-dom"
+import PropTypes from 'prop-types';
+
 const BookList = ({bookshelves, books, moveShelf}) =>{
-    console.log(books);
     return(
         <div className="list-books">
             <div className="list-books-title">
@@ -14,7 +15,7 @@ const BookList = ({bookshelves, books, moveShelf}) =>{
                 ))}
             </div>
         </div>
-        <div className="open-search a">
+        <div className="open-search">
             <Link to="/search">
                 <button>Add a Book</button>
             </Link>
@@ -22,5 +23,11 @@ const BookList = ({bookshelves, books, moveShelf}) =>{
         </div>
     )
 }
+
+BookList.propTypes = {
+    books: PropTypes.array,
+    bookshelves: PropTypes.array,
+    moveShelf: PropTypes.func,
+  };
 
 export default BookList;

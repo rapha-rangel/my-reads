@@ -1,6 +1,7 @@
 import BookshelfChanger from "./BookshelfChanger";
+import PropTypes from 'prop-types';
+
 const Book = ({book, shelf, moveShelf})=>{
-    console.log(shelf)
     return (
         <li>
             <div className="book">
@@ -24,5 +25,11 @@ const Book = ({book, shelf, moveShelf})=>{
         </li>
     )
 }
+
+Book.propTypes = {
+    book: PropTypes.object,
+    shelf: PropTypes.string,
+    moveShelf: PropTypes.func,
+  };
 
 export default Book;

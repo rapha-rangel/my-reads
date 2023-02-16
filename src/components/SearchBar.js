@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { React, useState } from "react";
+import PropTypes from 'prop-types';
+
 const SearchBar = ({resetSearchBookList, searchBookList})=>{
     const [inputValue, setInputValue] = useState("");
 
@@ -7,10 +9,7 @@ const SearchBar = ({resetSearchBookList, searchBookList})=>{
         const valEvent = event.target.value;
         console.log(valEvent);
         setInputValue(valEvent)
-        const changeInput=()=>{
-            searchBookList(valEvent)
-        }
-        changeInput();
+        searchBookList(valEvent)
     }
 
     return (
@@ -32,5 +31,10 @@ const SearchBar = ({resetSearchBookList, searchBookList})=>{
         </div>
     )
 }
+
+SearchBar.propTypes = {
+    searchBookList: PropTypes.func,
+    resetSearchBookList: PropTypes.func,
+  };
 
 export default SearchBar;

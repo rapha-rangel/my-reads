@@ -1,7 +1,9 @@
 import Book from "./Book";
+import PropTypes from 'prop-types';
+
 const SearchResults = ({books, searchBooks, moveShelf})=>{
-    const updateBooks = searchBooks.map(searchedBooks=>{
-        books.map(b=>{
+    const updateBooks = searchBooks.filter(searchedBooks=>{
+        books.filter(b=>{
             if (b.id === searchedBooks.id) {
                 searchedBooks.shelf = b.shelf;
             }
@@ -24,5 +26,11 @@ const SearchResults = ({books, searchBooks, moveShelf})=>{
         </div>
     )
 }
+
+SearchResults.propTypes = {
+    books: PropTypes.array,
+    searchedBooks: PropTypes.array,
+    moveShelf: PropTypes.func,
+  };
 
 export default SearchResults;
